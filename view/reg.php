@@ -17,7 +17,7 @@
 <section class="main">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-6 offset-md-3">
                 <form method="POST" action="reg.php">
                     <div class="form-row reg">
                         <label for="name">Ваш логин</label>

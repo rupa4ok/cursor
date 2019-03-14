@@ -8,43 +8,48 @@
 
 namespace App\Components;
 
-class UserInfo
+use App\Models\BaseModels;
+
+class UserInfo extends BaseModels
 {
-    private $id;
-    private $login;
-    private $email;
-    private $name;
+    /**
+     * @var UserInfo[]
+     */
+    protected $userInfo;
     
-    public function __construct($id, $count, $price, $login)
+    public function __construct($userInfo)
     {
-        $this->id = $id;
-        $this->count = $count;
-        $this->price = $price;
-        $this->login = $login;
+        $this->userInfo = $userInfo;
+        parent::__construct();
     }
     
     public function getId()
     {
-        return $this->id;
+        return $this->userInfo['id'] ?? null;
     }
     
     public function getLogin()
     {
-        return $this->login;
+        return $this->userInfo['login'] ?? null;
+    }
+    
+    public function getPassword()
+    {
+        return $this->userInfo['password'] ?? null;
+    }
+    
+    public function getPasswordConfirm()
+    {
+        return $this->userInfo['password'] ?? null;
     }
     
     public function getName()
     {
-        return $this->name;
+        return $this->userInfo['name'] ?? null;
     }
     
     public function getEmail()
     {
-        return $this->email;
-    }
-    
-    public function getCost()
-    {
-        return $this->count * $this->price;
+        return $this->userInfo['email'] ?? null;
     }
 }

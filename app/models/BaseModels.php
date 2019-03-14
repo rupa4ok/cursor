@@ -6,7 +6,7 @@
  * Time: 7:59
  */
 
-namespace App\models;
+namespace App\Models;
 
 use App\Components\Requests;
 use App\storage\CookiesStorage;

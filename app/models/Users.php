@@ -9,6 +9,7 @@
 namespace App\Models;
 
 use App\Components\Requests;
+use App\Components\UserInfo;
 
 class Users extends BaseModels
 {
@@ -16,7 +17,6 @@ class Users extends BaseModels
      * @var Requests
      */
     private $requests;
-    private $password;
     
     public function __construct()
     {
@@ -24,9 +24,18 @@ class Users extends BaseModels
         parent::__construct();
     }
     
+    public function login()
+    {
+    
+    }
+    
     public function register()
     {
-        $userData = $this->requests->getPost();
+        $userPostInfo = new UserInfo($this->requests->getPost());
+        $userXmlInfo = new UserInfo($this->xmlStorage->load());
+        $validate = $this->emailValidate($userPostInfo->getEmail(), $userXmlInfo->getEmail());
+        
+        
         $errors = [];
 //        if () {
 //            $errors[] = 'Данный пользователь уже существует';
@@ -38,4 +47,10 @@ class Users extends BaseModels
 //        }
         
     }
+    
+    public function emailValidate($emailForm, $emailStorage): void
+    {
+        echo $emailForm . '-' . $emailStorage;
+    }
+    
 }

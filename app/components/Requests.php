@@ -21,11 +21,11 @@ class Requests
     
     public function getPost(): array
     {
-        return isset($_POST) ? $_POST : [];
+        return $this->post ?? [];
     }
     
-    public function getRequest()
+    public function getRequest(): array
     {
-        return isset($_GET) ? $_GET : [];
+        return $this->get ?? [];
     }
 }

@@ -8,6 +8,7 @@
 
 namespace App\controllers;
 
+use App\Components\Requests;
 use App\Models\Users;
 
 class RegController extends BaseController
@@ -16,7 +17,7 @@ class RegController extends BaseController
     
     public function __construct()
     {
-        $this->users = new Users($this->sessionStorage);
+        $this->users = new Users();
         parent::__construct();
     }
     
