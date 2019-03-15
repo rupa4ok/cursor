@@ -23,7 +23,7 @@ class RegController extends BaseController
     
     public function actionIndex()
     {
-        $this->users->register();
+        $errors[] = $this->users->register();
         include_once 'view/reg.php';
     }
 }

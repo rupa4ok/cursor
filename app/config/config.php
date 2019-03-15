@@ -15,5 +15,5 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-const DB_XML = 'resource/xml/bd.xml';
+const DB_XML = 'resource/xml/bd.php';
 const DB_CONFIG = "mysql:host=localhost; dbname=vseojkt; charset=utf8', 'test', 'password";

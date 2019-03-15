@@ -13,3 +13,7 @@ include_once ROOT.'/app/config/config.php';
 
 $router = new Router();
 $router->run();
+
+include 'resource/xml/bd.php';
+
+$movies = new SimpleXMLElement($xmlstr);

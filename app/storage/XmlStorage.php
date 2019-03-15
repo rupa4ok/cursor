@@ -17,16 +17,20 @@ class XmlStorage implements StorageInterface
     public function __construct($file)
     {
         $this->file = $file;
-        $this->xml = new SimpleXMLElement($file);
+//        $this->xml = new SimpleXMLElement($file);
     }
     
     public function load()
     {
-        return $this->xml->asXML($this->file);
+        return [
+            'login' => '324',
+            'name' => 'Test',
+            'email' => '2@mail.ru'
+        ];
     }
     
     public function save(array $items)
     {
-        return $this->xml->saveXML($this->file);
+//        return $this->xml->saveXML($this->file);
     }
 }

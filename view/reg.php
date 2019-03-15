@@ -16,6 +16,13 @@
 
 <section class="main">
     <div class="container">
+        <div>
+            <row>
+                <div class="col-md-6 offset-md-3">
+                
+                </div>
+            </row>
+        </div>
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <form method="POST" action="reg.php">
