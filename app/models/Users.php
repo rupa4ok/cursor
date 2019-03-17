@@ -10,80 +10,53 @@ namespace App\Models;
 
 use App\Components\Requests;
 use App\Components\UserInfo;
+use App\components\Validate;
+use App\controllers\BaseController;
 
-class Users extends BaseModels
+class Users extends BaseController
 {
     /**
      * @var Requests
      */
     private $userPostInfo;
     private $userXmlInfo;
+    private $validate;
     
     public function __construct()
     {
         parent::__construct();
         $this->userPostInfo = new UserInfo($this->request->getPost());
         $this->userXmlInfo = new UserInfo($this->xmlStorage->load());
+        $this->validate = new Validate();
     }
     
+    /**
+     *
+     */
     public function login()
     {
-    
+        if (empty($this->validate->checkValid())) {
+            $this->sessionStorage->save($this->userPostInfo->userInfo);
+            $this->helpers->redirect('', 301);
+        } else {
+            return $this->validate->checkValid();
+        }
     }
     
     /**
      * Запись пользователя в хранилище
-     */
-    public function register()
-    {
-//        print_r($this->xmlStorage->load());
-        echo $this->checkValid();
-    }
-    
-    /**
-     * Проверка данных, полученных из запроса и находящихся в хранилище на существование
      *
      * @return array|string
      */
-    public function checkValid()
+    public function register()
     {
-        $validate = $this->getValidationData();
-        empty($validate) ? $validate = 'Пользователь существует' : $validate = 'Пользователь не найден';
-        return $validate;
+        if (empty($this->validate->checkValid())) {
+            $this->sessionStorage->save($this->userPostInfo->userInfo);
+            $reg = 'Успешно зарегистрирован';
+        } else {
+            $reg = $this->validate->checkValid();
+        }
+        return $reg;
     }
-    
-    /**
-     * Получение данных, из запроса и находящихся в хранилище
-     *
-     * @return array
-     */
-    public function getValidationData(): array
-    {
-        $validate = [];
-        $validate[] = $this->loginValidate($this->userPostInfo->getLogin(), $this->userXmlInfo->getLogin());
-        $validate[] = $this->emailValidate($this->userPostInfo->getEmail(), $this->userXmlInfo->getEmail());
-        return $validate;
-    }
-    
-    /**
-     * @param $loginForm
-     * @param $loginStorage
-     * @return string|null
-     */
-    public function loginValidate($loginForm, $loginStorage)
-    {
-        return ($loginForm === $loginStorage) ?
-            $errors = 'Данный Login занят' : null;
-    }
-    
-    /**
-     * @param $emailForm
-     * @param $emailStorage
-     * @return string|null
-     */
-    public function emailValidate($emailForm, $emailStorage)
-    {
-        return ($emailForm === $emailStorage) ?
-            $errors = 'Данный Email занят' : null;
-    }
+
 }

@@ -32,6 +32,7 @@ class IndexController extends BaseController
     public function actionMain()
     {
         $this->auth->login($this->request->getPost(), $this->request->getPost());
+        
         include_once 'view/index.php';
     }
 }

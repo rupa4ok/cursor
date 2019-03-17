@@ -6,7 +6,6 @@
  * Time: 16.01
  */
 
-use App\Components\Auth;
 use PHPUnit\Framework\TestCase;
 
 class AuthTest extends TestCase
@@ -18,12 +17,8 @@ class AuthTest extends TestCase
     }
     
     /**
-     * @dataProvider
+     * @dataProvider getUsersInfo
      */
-    public function testLogin(): array
-    {
-    }
-    
     public function testPasswordEquals(): void
     {
         $userData = $this->getUsersInfo();

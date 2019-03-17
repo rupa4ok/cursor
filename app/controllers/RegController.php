@@ -8,7 +8,6 @@
 
 namespace App\controllers;
 
-use App\Components\Requests;
 use App\Models\Users;
 
 class RegController extends BaseController
@@ -23,7 +22,11 @@ class RegController extends BaseController
     
     public function actionIndex()
     {
-        $errors[] = $this->users->register();
-        include_once 'view/reg.php';
+        $errors = '';
+        if ($this->request->requestMethod('POST')) {
+            $errors = $this->users->register();
+        }
+        
+        include_once ROOT.'/view/reg.php';
     }
 }

@@ -28,4 +28,9 @@ class Requests
     {
         return $this->get ?? [];
     }
+    
+    public function requestMethod($method)
+    {
+        return $_SERVER['REQUEST_METHOD'] == $method;
+    }
 }

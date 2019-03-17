@@ -8,6 +8,7 @@
 
 namespace App\controllers;
 
+use App\components\Helpers;
 use App\Components\Requests;
 use App\storage\CookiesStorage;
 use App\storage\SessionStorage;
@@ -15,6 +16,9 @@ use App\storage\XmlStorage;
 
 abstract class BaseController
 {
+    const DB_XML = '/resource/xml/bd.php';
+    const DB_CONFIG = "mysql:host=localhost; dbname=vseojkt; charset=utf8', 'test', 'password";
+    
     /**
      * @var Requests
      */
@@ -35,6 +39,8 @@ abstract class BaseController
      */
     protected $xmlStorage;
     
+    protected $helpers;
+    
     protected $key;
     protected $file;
     
@@ -43,8 +49,9 @@ abstract class BaseController
         $this->request = new Requests();
         $this->sessionStorage = new SessionStorage($this->key);
         $this->cookiesStorage = new CookiesStorage();
-        $this->file = file_get_contents(DB_XML);
+//        $this->file = file_get_contents('test');
         $this->xmlStorage = new XmlStorage($this->file);
+        $this->helpers = new Helpers();
     }
     
 }

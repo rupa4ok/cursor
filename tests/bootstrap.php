@@ -1,7 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: rupak
- * Date: 14.03.2019
- * Time: 6:29
- */
+
+$dir = __DIR__ . '/www';
+define('ROOT', dirname($dir));
+include_once ROOT.'vendor/autoload.php';
+include_once ROOT.'app/config/config.php';

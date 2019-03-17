@@ -8,14 +8,14 @@
 
 namespace App\Components;
 
-use App\Models\BaseModels;
+use App\controllers\BaseController;
 
-class UserInfo extends BaseModels
+class UserInfo extends BaseController
 {
     /**
      * @var UserInfo[]
      */
-    protected $userInfo;
+    public $userInfo;
     
     public function __construct($userInfo)
     {
@@ -40,7 +40,7 @@ class UserInfo extends BaseModels
     
     public function getPasswordConfirm()
     {
-        return $this->userInfo['password'] ?? null;
+        return $this->userInfo['passwordConfirm'] ?? null;
     }
     
     public function getName()

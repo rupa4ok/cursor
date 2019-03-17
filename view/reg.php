@@ -25,6 +25,7 @@
         </div>
         <div class="row">
             <div class="col-md-6 offset-md-3">
+                <?=$errors ?>
                 <form method="POST" action="reg.php">
                     <div class="form-row reg">
                         <label for="name">Ваш логин</label>
@@ -41,7 +42,7 @@
                         <input type="password" class="form-control"
                                pattern="[а-яА-Яa-zA-Z0-9_-]{6,100}" autofocus
                                required title="Пароль не должен быть короче 6 символов"
-                               placeholder="Повторный пароль" name="confirm_password">
+                               placeholder="Повторный пароль" name="passwordConfirm">
                         
                         <label for="email">Ваша почта</label>
                         <input type="email" class="form-control" autofocus
