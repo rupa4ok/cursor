@@ -8,8 +8,8 @@
 
 namespace App\controllers;
 
+use App\components\Helpers;
 use App\Components\Requests;
-use App\storage\SessionStorage;
 use App\Components\Auth;
 
 class IndexController extends BaseController
@@ -32,7 +32,7 @@ class IndexController extends BaseController
     public function actionMain()
     {
         $this->auth->login($this->request->getPost(), $this->request->getPost());
-        
-        include_once 'view/index.php';
+    
+        echo Helpers::render('index', ['login' => '']);
     }
 }

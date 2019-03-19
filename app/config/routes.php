@@ -7,7 +7,7 @@
  */
 
 return array(
-    '/' => 'index/main',
     'reg' => 'reg/index',
-    'login' => 'auth/index'
+    'login' => 'auth/index',
+    '/' => 'index/main'
 );

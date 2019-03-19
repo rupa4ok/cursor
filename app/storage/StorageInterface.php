@@ -8,15 +8,17 @@
 
 namespace App\Storage;
 
+use App\Components\UserInfo;
+
 interface StorageInterface
 {
     /**
-     * @return UserItem[]
+     * @return UserInfo[]
      */
     public function load();
     
     /**
-     * @param UserItem[] $items
+     * @param UserInfo[] $items
      * @return mixed
      */
     public function save(array $items);

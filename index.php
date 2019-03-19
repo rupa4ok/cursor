@@ -15,5 +15,3 @@ $router = new Router();
 $router->run();
 
 include 'resource/xml/bd.php';
-
-$movies = new SimpleXMLElement($xmlstr);

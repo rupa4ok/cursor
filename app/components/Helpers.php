@@ -11,8 +11,16 @@ namespace App\components;
 
 class Helpers
 {
-    public function redirect($uri, $response)
+    static public function redirect($uri, $response)
     {
         header("Location: $uri", true, $response);
+    }
+    
+    static public function render($template, $data)
+    {
+        extract($data);
+        ob_start();
+        require ROOT."/view/$template.php";
+        return trim(ob_get_clean());
     }
 }

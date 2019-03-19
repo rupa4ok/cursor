@@ -8,6 +8,7 @@
 
 namespace App\controllers;
 
+use App\components\Helpers;
 use App\Models\Users;
 
 class RegController extends BaseController
@@ -26,7 +27,7 @@ class RegController extends BaseController
         if ($this->request->requestMethod('POST')) {
             $errors = $this->users->register();
         }
-        
-        include_once ROOT.'/view/reg.php';
+    
+        echo Helpers::render('reg', ['errors' => $errors]);
     }
 }

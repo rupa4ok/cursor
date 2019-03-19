@@ -51,7 +51,6 @@ abstract class BaseController
         $this->cookiesStorage = new CookiesStorage();
 //        $this->file = file_get_contents('test');
         $this->xmlStorage = new XmlStorage($this->file);
-        $this->helpers = new Helpers();
     }
     
 }
