@@ -14,7 +14,7 @@ class Router
      * @var mixed
      */
     private $routes;
-    
+
     public function __construct()
     {
         $routesPath = ROOT.'/app/config/routes.php';
@@ -30,15 +30,13 @@ class Router
     
     public function run()
     {
-        $uri = $this->getURI();
-    
-        if ($uri == '') {
+        if ($this->getURI() == '') {
             $controllerObject = new IndexController();
-            $result = $controllerObject->actionMain();
+            return $controllerObject->actionMain();
         }
 
         foreach ($this->routes as $uriPattern => $path) {
-            if(preg_match("~$uriPattern~", $uri)) {
+            if(preg_match("~$uriPattern~", $this->getURI())) {
                 $segments = explode('/', $path);
                 $segments2 = explode('/', $path);
                 
@@ -58,6 +56,7 @@ class Router
                 $result = $controllerObject->$actionName();
                 
                 if ($result != null) {
+                    return $result;
                     break;
                 }
             }

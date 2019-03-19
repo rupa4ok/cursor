@@ -28,6 +28,6 @@ class RegController extends BaseController
             $errors = $this->users->register();
         }
     
-        echo Helpers::render('reg', ['errors' => $errors]);
+        return Helpers::render('reg', ['errors' => $errors]);
     }
 }

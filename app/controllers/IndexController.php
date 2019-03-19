@@ -33,6 +33,6 @@ class IndexController extends BaseController
     {
         $this->auth->login($this->request->getPost(), $this->request->getPost());
     
-        echo Helpers::render('index', ['login' => '']);
+        return Helpers::render('index', ['login' => '']);
     }
 }
