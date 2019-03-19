@@ -14,7 +14,7 @@ class Router
      * @var mixed
      */
     private $routes;
-
+    
     public function __construct()
     {
         $routesPath = ROOT.'/app/config/routes.php';
@@ -31,35 +31,30 @@ class Router
     public function run()
     {
         if ($this->getURI() == '') {
-            $controllerObject = new IndexController();
-            return $controllerObject->actionMain();
+            return (new IndexController())->actionMain();
         }
-
+        return $this->getRoutes() ?: null;
+    }
+    
+    private function getRoutes()
+    {
         foreach ($this->routes as $uriPattern => $path) {
             if(preg_match("~$uriPattern~", $this->getURI())) {
                 $segments = explode('/', $path);
-                $segments2 = explode('/', $path);
-                
-                $view = array_shift($segments2);
-                
-                $controllerName = array_shift($segments).'Controller';
-                $controllerName = ucfirst($controllerName);
-                
+                $controllerName = ucfirst(array_shift($segments).'Controller');
                 $actionName = 'action'.ucfirst((array_shift($segments)));
-    
-                $controllerFile = ROOT.'/app/controllers/' .$controllerName. '.php';
-                if (file_exists($controllerFile)) {
-                    include_once($controllerFile);
-                }
+                $this->includeClass($controllerName);
                 $objectName = trim("App\Controllers" . "\ ") . $controllerName;
-                $controllerObject = new $objectName($view);
-                $result = $controllerObject->$actionName();
-                
-                if ($result != null) {
-                    return $result;
-                    break;
-                }
+                return (new $objectName(array_shift($segments)))->$actionName();
             }
+        }
+    }
+    
+    private function includeClass($controllerName)
+    {
+        $controllerFile = ROOT.'/app/controllers/' .$controllerName. '.php';
+        if (file_exists($controllerFile)) {
+            include_once($controllerFile);
         }
     }
 }
