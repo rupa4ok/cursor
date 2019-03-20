@@ -19,7 +19,7 @@ class SessionStorage implements StorageInterface
     
     public function load()
     {
-        return isset($_SESSION[$this->key]) ? unserialize($_SESSION[$this->key]) : [];
+        return isset($_SESSION[$this->key]) ? unserialize($_SESSION[$this->key], ['allowed_classes' => false]) : [];
     }
     
     public function save(array $items)
