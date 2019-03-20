@@ -53,8 +53,7 @@ class Validate extends BaseController
         $validate = [];
         $validate[] = $this->passwordValidate(
             $this->userPostInfo->getPassword(),
-            $this->userPostInfo->getPasswordConfirm()
-        );
+            $this->userPostInfo->getPasswordConfirm());
         $validate[] = $this->loginValidate(
             $this->userPostInfo->getLogin(),
             $this->userXmlInfo->getLogin());
