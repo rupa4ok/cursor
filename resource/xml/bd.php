@@ -25,4 +25,3 @@ $xmlstr = <<<XML
  </movie>
 </movies>
 XML;
-?>
