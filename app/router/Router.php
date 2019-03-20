@@ -39,7 +39,7 @@ class Router
     private function getRoutes()
     {
         foreach ($this->routes as $uriPattern => $path) {
-            if(preg_match("~$uriPattern~", $this->getURI())) {
+            if (preg_match("~$uriPattern~", $this->getURI())) {
                 $segments = explode('/', $path);
                 $controllerName = ucfirst(array_shift($segments).'Controller');
                 $actionName = 'action'.ucfirst((array_shift($segments)));
@@ -50,7 +50,7 @@ class Router
         }
     }
     
-    private function includeClass($controllerName)
+    private function includeClass($controllerName):void
     {
         $controllerFile = ROOT.'/app/controllers/' .$controllerName. '.php';
         if (file_exists($controllerFile)) {
