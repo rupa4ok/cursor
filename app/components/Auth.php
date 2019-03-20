@@ -22,8 +22,8 @@ class Auth
     protected $storage;
     protected $xmlBd;
     
-    public function login($request, $storage)
+    public function login($storage)
     {
-        return $storage;
+        return $this->storage = $storage;
     }
 }

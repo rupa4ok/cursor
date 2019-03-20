@@ -8,10 +8,10 @@
 
 namespace App\Components;
 
-use App\Models\BaseModels;
+use App\controllers\BaseController;
 use App\Storage\StorageInterface;
 
-class Reg extends BaseModels
+class Reg extends BaseController
 {
     /**
      * @var UserInfo[]
@@ -26,5 +26,4 @@ class Reg extends BaseModels
     {
         parent::__construct();
     }
-
 }

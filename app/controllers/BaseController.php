@@ -8,11 +8,8 @@
 
 namespace App\controllers;
 
-use App\components\Helpers;
 use App\Components\Requests;
-use App\storage\CookiesStorage;
-use App\storage\SessionStorage;
-use App\storage\XmlStorage;
+use App\storage\{CookiesStorage, SessionStorage, XmlStorage};
 
 abstract class BaseController
 {
@@ -52,5 +49,4 @@ abstract class BaseController
 //        $this->file = file_get_contents('test');
         $this->xmlStorage = new XmlStorage($this->file);
     }
-    
 }

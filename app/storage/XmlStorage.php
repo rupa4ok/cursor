@@ -7,7 +7,6 @@
  */
 
 namespace App\storage;
-Use \SimpleXMLElement;
 
 class XmlStorage implements StorageInterface
 {

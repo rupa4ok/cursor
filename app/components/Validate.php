@@ -31,7 +31,7 @@ class Validate extends BaseController
     }
     
     /**
-     * Проверка данных, полученных из запроса и находящихся в хранилище на существование
+     * Валидация данных, полученных из запроса и хранилища
      *
      * @return array|string
      */
@@ -51,9 +51,16 @@ class Validate extends BaseController
     public function getValidationData(): array
     {
         $validate = [];
-        $validate[] = $this->passwordValidate($this->userPostInfo->getPassword(), $this->userPostInfo->getPasswordConfirm());
-        $validate[] = $this->loginValidate($this->userPostInfo->getLogin(), $this->userXmlInfo->getLogin());
-        $validate[] = $this->emailValidate($this->userPostInfo->getEmail(), $this->userXmlInfo->getEmail());
+        $validate[] = $this->passwordValidate(
+            $this->userPostInfo->getPassword(),
+            $this->userPostInfo->getPasswordConfirm()
+        );
+        $validate[] = $this->loginValidate(
+            $this->userPostInfo->getLogin(),
+            $this->userXmlInfo->getLogin());
+        $validate[] = $this->emailValidate(
+            $this->userPostInfo->getEmail(),
+            $this->userXmlInfo->getEmail());
         return $validate;
     }
     

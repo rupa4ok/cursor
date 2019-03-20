@@ -30,7 +30,7 @@ class Router
     
     public function run()
     {
-        if ($this->getURI() == '') {
+        if ($this->getURI() === '') {
             return (new IndexController())->actionMain();
         }
         return $this->getRoutes() ?: null;

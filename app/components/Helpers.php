@@ -8,17 +8,16 @@
 
 namespace App\components;
 
-
 class Helpers
 {
-    static public function redirect($uri, $response)
+    public function redirect($uri, $response)
     {
         header("Location: $uri", true, $response);
     }
     
-    static public function render($template, $data)
+    public static function render($template, $data)
     {
-        extract($data);
+        extract($data, EXTR_SKIP);
         ob_start();
         require ROOT."/view/$template.php";
         return trim(ob_get_clean());

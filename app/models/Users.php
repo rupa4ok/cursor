@@ -8,9 +8,7 @@
 
 namespace App\Models;
 
-use App\Components\Requests;
-use App\Components\UserInfo;
-use App\components\Validate;
+use App\Components\{Requests, UserInfo, Validate};
 use App\controllers\BaseController;
 
 class Users extends BaseController
@@ -58,5 +56,4 @@ class Users extends BaseController
         }
         return $reg;
     }
-
 }
