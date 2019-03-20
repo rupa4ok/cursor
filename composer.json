@@ -12,6 +12,7 @@
   },
   "require": {
     "ext-simplexml": "*",
-    "ext-mbstring": "*"
+    "ext-mbstring": "*",
+    "ext-pdo": "*"
   }
 }

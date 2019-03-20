@@ -8,6 +8,7 @@
 
 namespace App\controllers;
 
+use App\components\Helpers;
 use App\Components\Requests;
 use App\storage\{CookiesStorage, SessionStorage, XmlStorage};
 
@@ -43,6 +44,7 @@ abstract class BaseController
     
     public function __construct()
     {
+        $this->helpers = new Helpers();
         $this->request = new Requests();
         $this->sessionStorage = new SessionStorage($this->key);
         $this->cookiesStorage = new CookiesStorage();

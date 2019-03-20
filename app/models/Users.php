@@ -8,7 +8,9 @@
 
 namespace App\Models;
 
-use App\Components\{Requests, UserInfo, Validate};
+use App\Components\Validate;
+use App\Components\Requests;
+use App\Components\UserInfo;
 use App\controllers\BaseController;
 
 class Users extends BaseController

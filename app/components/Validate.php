@@ -6,7 +6,7 @@
  * Time: 21:15
  */
 
-namespace App\components;
+namespace App\Components;
 
 use App\controllers\BaseController;
 
