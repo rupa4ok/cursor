@@ -8,7 +8,7 @@ install:
 env:
   global:
     - CC_TEST_REPORTER_ID=ABC123
-language: ruby
+language: php
 rvm:
   - 2.2.0
 before_script:
