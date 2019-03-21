@@ -7,4 +7,4 @@ key:
 lint:
 		composer run-script phpcs -- --standard=PSR12  app tests
 test:
-		composer run-script phpunit
+		composer run-script test

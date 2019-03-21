@@ -32,3 +32,7 @@ after_script:
 script:
 - make test
 - composer test -- --coverage-clover=coverage.xml
+
+after_success:
+# Submit coverage report to https://codecov.io
+- bash <(curl -s https://codecov.io/bash)
