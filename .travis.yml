@@ -6,14 +6,14 @@ services:
 - postgresql
 
 before_script:
+- composer run-script post-root-package-install
+- composer run-script post-create-project-cmd
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - ./cc-test-reporter before-build
 
 env:
   global:
-  - CC_TEST_REPORTER_ID=fc4cff3f449dff3ea84f2f92de0d239a9cfcd7475e49eca98f7e0d2b03aea21d
-  - CODECOV_TOKEN="977e1925-527b-41c3-9a32-a8b2b5767955"
   - DB_CONNECTION=pgsql
   - DB_DATABASE=travis_ci_test
   - DB_USERNAME=postgres
@@ -26,14 +26,13 @@ before_install:
 install:
 - composer self-update
 - make install
+- make env
+- make key
+- make lint
 
 after_script:
 - vendor/bin/test-reporter
 
-after_success:
-# Submit coverage report to https://codecov.io
-- bash <(curl -s https://codecov.io/bash)
-
 script:
-- make test
-- if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter -t, --coverage-input-type clover -r, --id "fc4cff3f449dff3ea84f2f92de0d239a9cfcd7475e49eca98f7e0d2b03aea21d" after-build --exit-code $TRAVIS_TEST_RESULT; fi
+- make lint test
+- if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
