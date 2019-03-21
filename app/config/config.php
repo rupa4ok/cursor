@@ -17,7 +17,7 @@ error_reporting(E_ALL);
 const DB_XML = 'resource/xml/bd.php';
 const DB_CONFIG = "mysql:host=localhost; dbname=vseojkt; charset=utf8', 'test', 'password";
 
-if ($_SERVER['SERVER_NAME'] == "tabel-refresh.herokuapp.com") {
+if ($_SERVER['SERVER_NAME'] === "tabel-refresh.herokuapp.com") {
     $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
     $host = $url["host"];
     $username = $url["user"];
@@ -29,4 +29,3 @@ if ($_SERVER['SERVER_NAME'] == "tabel-refresh.herokuapp.com") {
     $username = 'user';
     $password = '123';
 }
-echo $host;
