@@ -9,6 +9,8 @@ before_script:
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - ./cc-test-reporter before-build
+- travis_retry composer self-update
+- travis_retry composer install --no-interaction --prefer-source --dev
 
 env:
   global:
@@ -32,7 +34,7 @@ after_script:
 
 script:
 - make test
-- composer test -- --coverage-clover=coverage.xml
+- vendor/bin/phpunit --coverage-clover=coverage.xml
 
 after_success:
 # Submit coverage report to https://codecov.io
