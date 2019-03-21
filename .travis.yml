@@ -17,5 +17,3 @@ install:
 after_script:
 - vendor/bin/test-reporter
 
-script:
-- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT;
