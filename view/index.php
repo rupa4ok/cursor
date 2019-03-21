@@ -34,7 +34,7 @@
                         <input type="submit" class="btn btn-primary register" value="Войти">
                     </div>
                 </form>
-                <a href="/reg.php">Зарегистрироваться</a>
+                <a href="reg.php">Зарегистрироваться</a>
             </div>
         </div>
     </div>
