@@ -9,7 +9,7 @@
         }
     },
     "scripts": {
-        "phpunit": "phpunit",
+        "test": "phpunit",
         "phpcs": "phpcs"
     },
     "require-dev": {

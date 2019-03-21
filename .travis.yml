@@ -31,5 +31,4 @@ after_script:
 
 script:
 - make test
-- "phpunit --testsuite=unit --coverage-text --coverage-clover build/logs/clover.xml"
-- if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter --coverage-input-type clover build/logs/clover.xml after-build --exit-code $TRAVIS_TEST_RESULT; fi
+- composer test -- --coverage-clover=coverage.xml
