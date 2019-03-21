@@ -17,7 +17,7 @@ class Router
     
     public function __construct()
     {
-        $routesPath = ROOT.'/app/config/routes.php';
+        $routesPath = ROOT . '/app/config/routes.php';
         $this->routes = include($routesPath);
     }
     
@@ -41,8 +41,8 @@ class Router
         foreach ($this->routes as $uriPattern => $path) {
             if (preg_match("~$uriPattern~", $this->getURI())) {
                 $segments = explode('/', $path);
-                $controllerName = ucfirst(array_shift($segments).'Controller');
-                $actionName = 'action'.ucfirst((array_shift($segments)));
+                $controllerName = ucfirst(array_shift($segments) . 'Controller');
+                $actionName = 'action' . ucfirst((array_shift($segments)));
                 $this->includeClass($controllerName);
                 $objectName = trim("App\Controllers" . "\ ") . $controllerName;
                 return (new $objectName(array_shift($segments)))->$actionName();
@@ -52,7 +52,7 @@ class Router
     
     private function includeClass($controllerName):void
     {
-        $controllerFile = ROOT.'/app/controllers/' .$controllerName. '.php';
+        $controllerFile = ROOT . '/app/controllers/' . $controllerName . '.php';
         if (file_exists($controllerFile)) {
             include_once($controllerFile);
         }
