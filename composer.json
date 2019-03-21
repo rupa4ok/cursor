@@ -6,5 +6,8 @@
     },
     "scripts": {
         "test": "phpunit"
+    },
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
     }
 }
