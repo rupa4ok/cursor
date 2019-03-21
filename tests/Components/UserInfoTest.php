@@ -19,48 +19,48 @@ class UserInfoTest extends TestCase
         parent::setUp();
     }
     
-    public function testGetId()
-    {
-        $id = $this->setUserInfo()['id'];
-        $this->assertEquals($id, $this->userInfo['id']);
-    }
-    
-    public function testGetName()
-    {
-        $name = $this->setUserInfo()['name'];
-        $this->assertEquals($name, $this->userInfo['name']);
-    }
-    
-    public function testGetPassword()
-    {
-    
-    }
-    
-    public function testGetPasswordConfirm()
-    {
-    
-    }
-    
-    public function testGetEmail()
-    {
-    
-    }
-    
-    public function testGetLogin()
-    {
-    
-    }
-    
-    
-    public function setUserInfo()
-    {
-        return [
-            'id' => 3,
-            'name' => 'TestUser4',
-            'password' => '12345',
-            'password_confirm' => '12345',
-            'email' => 'test@mail.ru',
-            'login' => 'Test4'
-        ];
-    }
+//    public function testGetId()
+//    {
+//        $id = $this->setUserInfo()['id'];
+//        $this->assertEquals($id, $this->userInfo['id']);
+//    }
+//
+//    public function testGetName()
+//    {
+//        $name = $this->setUserInfo()['name'];
+//        $this->assertEquals($name, $this->userInfo['name']);
+//    }
+//
+//    public function testGetPassword()
+//    {
+//
+//    }
+//
+//    public function testGetPasswordConfirm()
+//    {
+//
+//    }
+//
+//    public function testGetEmail()
+//    {
+//
+//    }
+//
+//    public function testGetLogin()
+//    {
+//
+//    }
+//
+//
+//    public function setUserInfo()
+//    {
+//        return [
+//            'id' => 3,
+//            'name' => 'TestUser4',
+//            'password' => '12345',
+//            'password_confirm' => '12345',
+//            'email' => 'test@mail.ru',
+//            'login' => 'Test4'
+//        ];
+//    }
 }

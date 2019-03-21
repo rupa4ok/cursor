@@ -8,6 +8,7 @@
         "test": "phpunit"
     },
     "require-dev": {
-        "heroku/heroku-buildpack-php": "*"
+        "heroku/heroku-buildpack-php": "*",
+        "phpunit/phpunit": "^8.0"
     }
 }
