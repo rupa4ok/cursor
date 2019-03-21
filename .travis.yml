@@ -30,6 +30,6 @@ after_script:
 
 script:
 - make test
-- sudo vendor/bin/phpunit --coverage-clover clover.xml
-- if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --coverage-input-type clover build/logs/clover.xml  --exit-code $TRAVIS_TEST_RESULT; fi
+- phpunit --coverage-clover clover.xml
+- if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --coverage-input-type clover clover.xml  --exit-code $TRAVIS_TEST_RESULT; fi
 - ./cc-test-reporter upload-coverage
