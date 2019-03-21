@@ -8,5 +8,3 @@ include_once ROOT.'/app/config/config.php';
 
 $router = new Router();
 echo $router->run();
-
-echo $url = parse_url(getenv('CLEARDB_DATABASE_URL'));
