@@ -35,5 +35,5 @@ after_success:
 - bash <(curl -s https://codecov.io/bash)
 
 script:
-- composer test -- --coverage-clover=clover.xml
+- make test
 - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter -t, --coverage-input-type clover -r, --id "fc4cff3f449dff3ea84f2f92de0d239a9cfcd7475e49eca98f7e0d2b03aea21d" after-build --exit-code $TRAVIS_TEST_RESULT; fi
