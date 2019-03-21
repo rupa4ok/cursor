@@ -28,7 +28,7 @@ before_install:
 install:
 - composer self-update
 - make install
-- sudo apt-get install php5-xdebug
+- sudo apt-get install php7-xdebug
 
 after_script:
 - vendor/bin/test-reporter
