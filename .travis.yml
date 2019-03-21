@@ -29,7 +29,6 @@ install:
 - composer self-update
 - make install
 - sudo apt-get install php5-xdebug
-- sudo service apache2 restart
 
 after_script:
 - vendor/bin/test-reporter
