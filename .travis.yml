@@ -13,6 +13,7 @@ before_script:
 env:
   global:
   - CC_TEST_REPORTER_ID=fc4cff3f449dff3ea84f2f92de0d239a9cfcd7475e49eca98f7e0d2b03aea21d
+  - CODECOV_TOKEN="977e1925-527b-41c3-9a32-a8b2b5767955"
   - DB_CONNECTION=pgsql
   - DB_DATABASE=travis_ci_test
   - DB_USERNAME=postgres
