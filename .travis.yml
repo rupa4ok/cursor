@@ -28,13 +28,14 @@ before_install:
 install:
 - composer self-update
 - make install
+- sudo phpdismod -s cli xdebug
 
 after_script:
 - vendor/bin/test-reporter
 
 script:
 - make test
-- vendor/bin/phpunit --coverage-clover=coverage.xml
+- vendor/bin/phpunit
 
 after_success:
 # Submit coverage report to https://codecov.io
