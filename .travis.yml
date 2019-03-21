@@ -12,6 +12,7 @@ before_script:
 
 env:
   global:
+  - CC_TEST_REPORTER_ID=fc4cff3f449dff3ea84f2f92de0d239a9cfcd7475e49eca98f7e0d2b03aea21d
   - DB_CONNECTION=pgsql
   - DB_DATABASE=travis_ci_test
   - DB_USERNAME=postgres
@@ -31,4 +32,4 @@ after_script:
 script:
 - make test
 - "phpunit --testsuite=unit --coverage-text --coverage-clover build/logs/clover.xml"
-- if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+- if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter --coverage-input-type clover after-build --exit-code $TRAVIS_TEST_RESULT; fi
