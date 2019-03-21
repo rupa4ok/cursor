@@ -30,10 +30,11 @@ install:
 after_script:
 - vendor/bin/test-reporter
 
-script:
-- make test
-- composer test -- --coverage-clover=coverage.xml
-
 after_success:
 # Submit coverage report to https://codecov.io
 - bash <(curl -s https://codecov.io/bash)
+
+script:
+- make test
+- composer tests -- --coverage-clover=coverage.xml
+- if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
