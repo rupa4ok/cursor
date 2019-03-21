@@ -16,7 +16,9 @@
     <logging>
         <log type="coverage-clover" target="clover.xml"/>
     </logging>
-    <whitelist>
+    <whitelist processUncoveredFilesFromWhitelist="true">
         <directory suffix=".php">/tests</directory>
+        <exclude>
+        </exclude>
     </whitelist>
 </phpunit>
