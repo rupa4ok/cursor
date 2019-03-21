@@ -26,7 +26,6 @@ before_install:
 install:
 - composer self-update
 - make install
-- make lint
 
 after_script:
 - vendor/bin/test-reporter
