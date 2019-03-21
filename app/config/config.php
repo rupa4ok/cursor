@@ -6,7 +6,7 @@
  * Time: 4:58
  */
 
-session_id() ?: session_start();
+
 
 ini_set('default_charset', 'UTF-8');
 ini_set('error_reporting', E_ALL);
