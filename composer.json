@@ -9,10 +9,5 @@
     },
   "scripts": {
     "test": "phpunit"
-  },
-  "require": {
-    "ext-simplexml": "*",
-    "ext-mbstring": "*",
-    "ext-pdo": "*"
   }
 }
