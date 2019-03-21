@@ -23,4 +23,14 @@
             </exclude>
         </whitelist>
     </filter>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">/tests</directory>
+            <file>/tests</file>
+            <exclude>
+                <directory suffix=".php">/test/Auth</directory>
+                <file>/test/Auth</file>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>
