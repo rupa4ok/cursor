@@ -34,7 +34,7 @@ after_script:
 
 script:
 - make test
-- vendor/bin/phpunit --coverage-clover=coverage.xml
+- vendor/bin/phpunit --coverage-clover=coverage.xml --no-configuration
 
 after_success:
 # Submit coverage report to https://codecov.io
