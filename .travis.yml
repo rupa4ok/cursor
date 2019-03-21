@@ -39,4 +39,4 @@ script:
 
 after_success:
 # Submit coverage report to https://codecov.io
-- bash <(curl -s https://codecov.io/bash) -t "977e1925-527b-41c3-9a32-a8b2b5767955"
+- bash <(curl -s https://codecov.io/bash -t "977e1925-527b-41c3-9a32-a8b2b5767955")
