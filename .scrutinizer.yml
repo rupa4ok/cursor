@@ -1,0 +1,15 @@
+build:
+    nodes:
+        analysis:
+            project_setup:
+                override:
+                    - 'true'
+            tests:
+                override:
+                    - php ./vendor/bin/phpunit --configuration phpunit.xml --testsuite scrutinizer
+
+coding_style:
+    php:
+        indentation:
+            general:
+                use_tabs: true
