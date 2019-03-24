@@ -13,29 +13,35 @@ use PDOException;
 
 class DbStorage implements StorageInterface
 {
-    public function __construct()
+    private $db_name;
+    private $password;
+    private $username;
+    private $pdo;
+    
+    public function __construct(array $options)
     {
-        $this->connect();
+        $this->db_name = $options['db_name'];
+        $this->username = $options['username'];
+        $this->password = $options['password'];
+        try {
+            $this->pdo = new PDO("mysql:host=127.0.0.1; db_name=$this->db_name; charset=utf8", "$this->username", "$this->password");
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+        catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
     
     public function load()
     {
-        // TODO: Implement load() method.
+        $statment = $this->pdo->prepare('SELECT * FROM s17623.users');
+        $statment->execute();
+        return $statment->fetchAll(PDO::FETCH_ASSOC);
     }
     
     public function save(array $items)
     {
         // TODO: Implement save() method.
     }
-    
-    public function connect()
-    {
-        try {
-            $pdo = new PDO(DB_CONFIG);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }
-        catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
+
 }

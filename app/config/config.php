@@ -15,7 +15,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 const DB_XML = 'resource/xml/bd.php';
-const DB_CONFIG = "mysql:host=localhost; dbname=vseojkt; charset=utf8', 'test', 'password";
+//const DB = "mysql:host=localhost; dbname=$dbname; charset=utf8", "$username", "$password";
 
 if ($_SERVER['SERVER_NAME'] === "tabel-refresh.herokuapp.com") {
     $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -24,8 +24,10 @@ if ($_SERVER['SERVER_NAME'] === "tabel-refresh.herokuapp.com") {
     $password = $url["pass"];
     $dbname = substr($url["path"], 1);
 } else {
-    $host = 'localhost';
-    $dbname = 'db';
-    $username = 'user';
-    $password = '123';
+    $options = [
+       'host' => '127.0.0.1',
+        'db_name' => 's17623',
+        'username' => 's17623',
+        'password' => 'MgevqH8dZiut'
+    ];
 }
