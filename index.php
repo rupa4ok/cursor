@@ -9,9 +9,3 @@ include_once ROOT.'/app/config/config.php';
 
 $router = new Router();
 echo $router->run();
-
-$pdo = new DbStorage($options);
-
-
-
-print_r($pdo->load());
